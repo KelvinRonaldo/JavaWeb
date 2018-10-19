@@ -6133,7 +6133,7 @@ button.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: #f8f9fa !important;
+  background-color: /*original = #f8f9fa*/ #e2e2e2 !important;
 }
 
 a.bg-light:hover, a.bg-light:focus,
@@ -8878,7 +8878,7 @@ a.text-success:hover, a.text-success:focus {
 }
 
 .text-info {
-  color: #17a2b8 !important;
+  color: /*#17a2b8*/ #4ab3e0 !important;
 }
 
 a.text-info:hover, a.text-info:focus {
