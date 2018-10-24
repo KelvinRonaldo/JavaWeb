@@ -4898,7 +4898,7 @@ input[type="button"].btn-block {
 
 .alert {
   position: relative;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 2rem 1rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
   border-radius: 0.25rem;
@@ -6133,7 +6133,7 @@ button.bg-danger:focus {
 }
 
 .bg-light {
-  background-color: /*original = #f8f9fa*/ #e2e2e2 !important;
+  background-color: /*original = #f8f9fa*/ #f2f2f2 !important;
 }
 
 a.bg-light:hover, a.bg-light:focus,
@@ -8096,6 +8096,7 @@ button.bg-dark:focus {
   .my-md-5 {
     margin-top: 3rem !important;
   }
+  
   .mr-md-5,
   .mx-md-5 {
     margin-right: 3rem !important;
@@ -8854,7 +8855,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #007bff !important;
+  color: /*#007bff*/ #508dce !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {

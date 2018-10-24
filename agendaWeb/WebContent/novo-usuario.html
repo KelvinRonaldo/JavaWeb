@@ -1,70 +1,84 @@
 <!DOCTYPE html>
 <html>
-	<head>
+	<head id="head">
 		<meta charset="ISO-8859-1">
-		<title>Novo Usuáirio</title>
+		<title>Novo Usuário</title>
 		<link rel="stylesheet" href="css/bootstrap.css">
+		<meta charset="utf-8">
 	</head>
 	<body class="bg-dark">
 	<!--  Cabeçalho da Página -->
-		<div class="bg-light p-2 fluid">
+		<div class="bg-info p-2 fluid">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-md-1"> <img src="img/agenda68.png"> </div>
-					<div class="col-md-11"> <h3 class="text-info">AGENDA ELETRÔNICA</h2><h6>Contatos e Compromisso</h6></div>
+					<div class="col-md-11"> <h3 class="text-light" id="titulo">AGENDA ELETRÔNICA</h2><h6 class="text-white-50">Contatos e Compromisso</h6></div>
 				</div>
 			</div>
 		</div>
 		<!-- Formulario de Cadastro -->
 		<div class="container">
-			<form>
-				<div class="bg-info card mt-5">
+			<form id="form-usuario">
+				<div class="bg-light card mt-5">
 					<div class="card-header">
 						<div class="row align-items-center">
 							<div class="col-md-1"> <img src="img/addUser64.png"></div>
-							<div class="col-md-11 text-light"><h3>CADASTRAR NO USUÁRIO</h3></div>
+							<div class="col-md-11 text-primary"><h3>CADASTRAR DO USUÁRIO</h3></div>
 						</div>
 					</div>
 					<div class="bg-white card-body">
+						<div>
+							<ul class="text-danger alert alert-warning" id="mensagem-erros">
+							</ul>
+						</div>
 						<div>
 							<fieldset class="form-group">
 								<legend class="text-info font-weight-bold">Dados Gerais:</legend>	
 								<div class="row">
 									<div class="col-md-6">
-										<label>Nome:</label>
-										<input class="form-control" type="text">
+										<label for="txt-nome">Nome:</label>
+										<input class="form-control" type="text" id="txt-nome" name="txt-nome">
 									</div>
 									<div class="col-md-3">
-										<label>Data de Nascimento:</label>
-										<input class="form-control" type="text">
+										<label for="txt-nascimento">Data de Nascimento:</label>
+										<input class="form-control" type="date" id="txt-nascimento" name="txt-nascimento">
 									</div>
 									<div class="col-md-3">
-										<label>Sexo:</label>
-										<input class="form-control" type="text">
+										<label for="cb-sexo">Sexo:</label>
+										<select class="form-control" id="cb-sexo" name="cb-sexo">
+											<option>Selecione:</option>
+											<option>Masculino</option>
+											<option>Feminino</option>
+										</select>
 									</div>
 								</div>
 							</fieldset>
 							<fieldset class="form-group">
-								<legend>Dados de Acesso:</legend>	
+								<legend class="text-info font-weight-bold">Dados de Acesso:</legend>	
 								<div class="row">
 									<div class="col-md-6">
-										<label>E-mail:</label>
-										<input class="form-control" type="text">
+										<label for="txt-email">E-mail:</label>
+										<input class="form-control" type="email" id="txt-email" name="txt-email">
 									</div>
 									<div class="col-md-3">
-										<label>Senha:</label>
-										<input class="form-control" type="text">
+										<label for="txt-senha1">Senha:</label>
+										<input class="form-control" type="password" id="txt-senha1" name="txt-senha1">
 									</div>
 									<div class="col-md-3">
-										<label>Repetir:</label>
-										<input class="form-control" type="text">
+										<label for="txt-senha2">Repetir:</label>
+										<input class="form-control" type="password" id="txt-senha2" name="txt-senha2">
 									</div>
 								</div>
 							</fieldset>
 						</div>
 					</div>
+					<div class="card-footer">
+						<button class="btn btn-success" id="btn-cadastrar">Cadastrar Usuário</button>
+						<a href="login.html" class="btn btn-danger">Cancelar</a>
+					</div>
 				</div>
 			</form>
 		</div>
+	<script src="js/formulario.js"></script>
 	</body>
 </html>
