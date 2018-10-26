@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html>
 	<head id="head">
-		<meta charset="ISO-8859-1">
-		<title>Novo Usuário</title>
+		<meta charset="utf-8">
+		<title>Novo UsuÃ¡rio</title>
 		<link rel="stylesheet" href="css/bootstrap.css">
 		<meta charset="utf-8">
 	</head>
 	<body class="bg-dark">
-	<!--  Cabeçalho da Página -->
+	<!--  CabeÃ§alho da PÃ¡gina -->
 		<div class="bg-info p-2 fluid">
 			<div class="container">
 				<div class="row align-items-center">
 					<div class="col-md-1"> <img src="img/agenda68.png"> </div>
-					<div class="col-md-11"> <h3 class="text-light" id="titulo">AGENDA ELETRÔNICA</h2><h6 class="text-white-50">Contatos e Compromisso</h6></div>
+					<div class="col-md-11"> <h3 class="text-light" id="titulo">AGENDA ELETRÃ”NICA</h2><h6 class="text-white-50">Contatos e Compromisso</h6></div>
 				</div>
 			</div>
 		</div>
 		<!-- Formulario de Cadastro -->
 		<div class="container">
-			<form id="form-usuario">
+			<form id="form-usuario" action="resultado.jsp" method="get">
 				<div class="bg-light card mt-5">
 					<div class="card-header">
 						<div class="row align-items-center">
 							<div class="col-md-1"> <img src="img/addUser64.png"></div>
-							<div class="col-md-11 text-primary"><h3>CADASTRAR DO USUÁRIO</h3></div>
+							<div class="col-md-11 text-primary"><h3>CADASTRAR DO USUÃRIO</h3></div>
 						</div>
 					</div>
 					<div class="bg-white card-body">
-						<div>
-							<ul class="text-danger alert alert-warning" id="mensagem-erros">
+						<div id="painelDeErros" >
+							<h6 id="tituloErro" class="text-danger"></h6>
+							<ul id="mensagem-erros">
 							</ul>
 						</div>
 						<div>
@@ -73,7 +74,7 @@
 						</div>
 					</div>
 					<div class="card-footer">
-						<button class="btn btn-success" id="btn-cadastrar">Cadastrar Usuário</button>
+						<button class="btn btn-success" id="btn-cadastrar">Cadastrar UsuÃ¡rio</button>
 						<a href="login.html" class="btn btn-danger">Cancelar</a>
 					</div>
 				</div>

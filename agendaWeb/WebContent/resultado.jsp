@@ -1,12 +1,24 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.ParseException"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="javax.lang.model.util.SimpleAnnotationValueVisitor6"%>
+<%@page import="br.senai.sp.model.Usuario"%>
+<!-- 
+↓------↓ Diretiva  -->
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
 <%
-	String email = request.getParameter("email");
-	String senha = request.getParameter("senha");
-	String nome = request.getParameter("xpto");
+	Usuario usuario = new Usuario();
+	usuario.setNome(request.getParameter("txt-nome"));
+	usuario.setSexo(request.getParameter("cb-sexo"));
+	usuario.setEmail(request.getParameter("txt-email"));
+	usuario.setSenha(request.getParameter("txt-senha1"));
 	
-	int resposta = Integer.parseInt(email) + Integer.parseInt(senha);
+	SimpleDateFormat stringParaDate = new SimpleDateFormat("yyyy-MM-dd");
+	Date dataFormatada = stringParaDate.parse(request.getParameter("txt-nascimento"));
+	usuario.setDtNascimento(dataFormatada);
+	
 %>
     
 <!DOCTYPE html>
@@ -16,10 +28,14 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
-		<%= email %>
-		<%= senha %>
-		<h3><%= "Resultado " + resposta %></h3><br>
-		<%= nome %>
-		<h1>EU SOU UM HTML</h1>
+		<%= usuario.getNome() %><br>
+		<%= usuario.getDtNascimento() %><br>
+		<%= usuario.getSexo() %><br>
+		<%= usuario.getEmail() %><br>
+		<%= usuario.getSenha() %><br>
 	</body>
 </html>
+
+
+
+

@@ -4,12 +4,15 @@ botao.addEventListener('click', () => {
     // O elemento que chama essa função perde suas ações padrões
     var form = document.querySelector("#form-usuario");
     var usuario = obterUsuario(form);
-
     var erros = getErros(usuario);
-    if(erros.length > 0){
+    if(erros.length > 0){ 
         event.preventDefault();
+        var painelDeErros = document.querySelector("#painelDeErros");
+        painelDeErros.className = "list-group list-group-item list-group-item-warning pl-4";
+        
         var ulErros = document.querySelector("#mensagem-erros");
         ulErros.textContent = "";
+        
         for(let i = 0; i < erros.length; i++){
             var li = document.createElement("li");
             // inserir no texto do elemento
@@ -17,6 +20,8 @@ botao.addEventListener('click', () => {
             // mudar estilos pelo javascript - não recomendado
             ulErros.appendChild(li);
         }
+        var tituloErro = document.querySelector("#tituloErro");
+        tituloErro.textContent = "Não foi possível cadastrar usuário devido aos seguintes erros:";
     }else{
         console.log(usuario.nome);
         console.log(usuario.nascimento);
