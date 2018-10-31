@@ -18,7 +18,9 @@
 		</div>
 		<!-- Formulario de Cadastro -->
 		<div class="container">
-			<form id="form-usuario" action="resultado.jsp" method="get">
+		<!-- action = pra onde vai os dados pegos pelo formulario-->
+			<form id="form-usuario" action="UsuarioServlet" method="post">
+													<!--↑@webservlet da classe servlet -->
 				<div class="bg-light card mt-5">
 					<div class="card-header">
 						<div class="row align-items-center">
@@ -27,7 +29,7 @@
 						</div>
 					</div>
 					<div class="bg-white card-body">
-						<div id="painelDeErros" >
+						<div id="painelDeErros">
 							<h6 id="tituloErro" class="text-danger"></h6>
 							<ul id="mensagem-erros">
 							</ul>

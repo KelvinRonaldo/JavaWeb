@@ -3,14 +3,15 @@ var botao = document.querySelector("#btn-cadastrar");
 botao.addEventListener('click', () => {
     // O elemento que chama essa função perde suas ações padrões
     var form = document.querySelector("#form-usuario");
+    var painelDeErros = document.querySelector("#painelDeErros");
+    var ulErros = document.querySelector("#mensagem-erros");
     var usuario = obterUsuario(form);
     var erros = getErros(usuario);
+    
     if(erros.length > 0){ 
-        event.preventDefault();
-        var painelDeErros = document.querySelector("#painelDeErros");
-        painelDeErros.className = "list-group list-group-item list-group-item-warning pl-4";
-        
-        var ulErros = document.querySelector("#mensagem-erros");
+        painelDeErros.className = "list-group-item list-group-item-warning list-group pl-4";
+        console.log("oi");
+        ulErros.className = "text-danger";
         ulErros.textContent = "";
         
         for(let i = 0; i < erros.length; i++){
