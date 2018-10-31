@@ -34,7 +34,7 @@ public class UsuarioServlet extends HttpServlet {
 				+ "		<h1>HELLO WORLD</h1>"
 				+ "		<h4> Nome:" + nome + "</h4>"
 				+ "</html>");
-		response.sendRedirect("xpto.html");
+		/*response.sendRedirect("xpto.html");
 		*/
 		
 	}
