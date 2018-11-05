@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Usuario {
 	private String nome;
-	private Date dtNascimento;
+	private String dtNascimento;
 	private String sexo;
 	private String email;
 	private String senha;
@@ -18,11 +18,11 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public Date getDtNascimento() {
+	public String getDtNascimento() {
 		return dtNascimento;
 	}
 
-	public void setDtNascimento(Date dtNascimento) {
+	public void setDtNascimento(String dtNascimento) {
 		this.dtNascimento = dtNascimento;
 	}
 

@@ -2,11 +2,17 @@ package br.senai.sp.servlet;
 
 import java.io.IOException;
 
+
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.senai.sp.dao.Conexao;
+import br.senai.sp.dao.UsuarioDAO;
+import br.senai.sp.model.Usuario;
 
 @WebServlet("/UsuarioServlet")
 public class UsuarioServlet extends HttpServlet {
@@ -21,9 +27,9 @@ public class UsuarioServlet extends HttpServlet {
 		System.out.println(request.getParameter("txt-email"));
 		
 		
-		/*
-		response.getWriter().write(""
-				+ "<html>"
+		//↓ mostrar resposta na tela para o usuario
+		response.getWriter().write(
+				  "<html>"
 				+ "	<head>"
 				+ "		<title>"
 				+ "			RESPOSTA"
@@ -34,14 +40,26 @@ public class UsuarioServlet extends HttpServlet {
 				+ "		<h1>HELLO WORLD</h1>"
 				+ "		<h4> Nome:" + nome + "</h4>"
 				+ "</html>");
-		/*response.sendRedirect("xpto.html");
-		*/
-		
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Usuario usuario = new Usuario();
+		usuario.setNome(request.getParameter("txt-nome"));
+		usuario.setDtNascimento(request.getParameter("txt-nascimento"));
+		usuario.setSexo(request.getParameter("cb-sexo"));
+		usuario.setEmail(request.getParameter("txt-email"));
+		usuario.setSenha(request.getParameter("txt-senha1"));
 		
+		UsuarioDAO dao = new UsuarioDAO();
+		dao.setUsuario(usuario);
+		if(dao.gravar()){
+			response.sendRedirect("sucesso.html");
+		}else {
+			response.sendRedirect("novo-usuario.html");
+		}
+		
+		Conexao.getConexao();
 	}
 
 }

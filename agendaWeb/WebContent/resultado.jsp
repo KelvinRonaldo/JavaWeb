@@ -17,7 +17,7 @@
 	
 	SimpleDateFormat stringParaDate = new SimpleDateFormat("yyyy-MM-dd");
 	Date dataFormatada = stringParaDate.parse(request.getParameter("txt-nascimento"));
-	usuario.setDtNascimento(dataFormatada);
+	//usuario.setDtNascimento(dataFormatada);
 	
 %>
     
