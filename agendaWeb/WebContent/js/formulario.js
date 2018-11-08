@@ -13,7 +13,7 @@ botao.addEventListener('click', () => {
         console.log("oi");
         ulErros.className = "text-danger";
         ulErros.textContent = "";
-        
+        event.preventDefault();
         for(let i = 0; i < erros.length; i++){
             var li = document.createElement("li");
             // inserir no texto do elemento
@@ -61,11 +61,11 @@ const getErros = (usuario) =>{
     if(usuario.email.length == 0){
         erros.push("O e-mail é obrigatório!");
     }
-    if(usuario.senha1.length < 4){
-        erros.push("A senha deve ter mais de 4 caracteres!")
+    if(usuario.senha1.length < 4 || usuario.senha1.length > 8){
+        erros.push("A senha deve ter entre 4 e 8 caracteres!")
     }
-    if(usuario.senha2.length < 4){
-        erros.push("A confirmação da senha deve ter mais de 4 caracteres!")
+    if(usuario.senha2.length < 4 || usuario.senha2.length > 8){
+        erros.push("A confirmação da senha deve ter entre 4 e 8 caracteres!")
     }
     if(usuario.senha2 != usuario.senha1){
         erros.push("As senhas não correspondem!");

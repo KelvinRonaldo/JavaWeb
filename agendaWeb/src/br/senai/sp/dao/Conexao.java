@@ -20,10 +20,8 @@ public class Conexao {
 			String password = "123";
 			
 			con = DriverManager.getConnection(dbURL, user, password);
-			System.out.println("Conexão com o banco efetuada com sucesso");
 			
 		}catch(Exception erro) {
-			System.out.println("Ocorreu um erro na conexão com o banco de dados");
 			erro.printStackTrace();
 		}
 		return con;

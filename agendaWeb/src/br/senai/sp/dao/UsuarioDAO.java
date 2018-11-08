@@ -1,6 +1,7 @@
 package br.senai.sp.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import br.senai.sp.model.Usuario;
 
@@ -8,6 +9,7 @@ public class UsuarioDAO {
 	
 	private Usuario usuario;
 	private PreparedStatement stm;
+	private ResultSet rs;
 	
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
@@ -32,6 +34,33 @@ public class UsuarioDAO {
 			erro.printStackTrace();
 			return false;
 		}
+	}
+	
+	public Usuario autenticar(String email, String senha) {
+		String sql = "SELECT * FROM tbl_usuario WHERE email = ? AND senha = ?";
+		
+		try {
+			stm = Conexao.getConexao().prepareStatement(sql);
+			stm.setString(1, email);
+			stm.setString(2, senha);
+			rs = stm.executeQuery();
+
+			usuario = new Usuario();
+			
+			if(rs.next()) {
+				usuario.setCodUsuario(rs.getInt("codigo"));
+				usuario.setDtNascimento(rs.getString("dtNascimento"));
+				usuario.setEmail(rs.getString("email"));
+				usuario.setNome(rs.getString("nome"));
+				usuario.setSexo(rs.getString("sexo"));
+				usuario.setSenha(rs.getString("senha"));
+			}
+			return usuario;
+		}catch(Exception erro){
+			erro.printStackTrace();
+			return usuario;
+		}
+		
 	}
 	
 }
