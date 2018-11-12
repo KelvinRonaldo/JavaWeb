@@ -27,6 +27,7 @@ public class AutenticarServlet extends HttpServlet {
 		Usuario usuario = new Usuario();
 		usuario = dao.autenticar(request.getParameter("txt-email"), request.getParameter("txt-senha"));
 		if(usuario.getCodUsuario() > 0) {
+			request.getSession().setAttribute("usuario", usuario);
 			response.sendRedirect("index.jsp");
 		}else {
 			response.sendRedirect("login.html");
