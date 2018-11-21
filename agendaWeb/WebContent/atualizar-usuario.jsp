@@ -28,7 +28,7 @@
 				<div class="card">
 					<div class="card-header bg-info text-light"><h4>Bem-Vindo</h4></div>
 					<div class="card-body">
-						<form id="form-usuario" action="#" method="post">
+						<form id="form-usuario" action="AtualizarUsuarioServlet" method="post">
 												<!--↑@webservlet da classe servlet -->
 							<div class="bg-light card mt-1">
 								<div class="card-header">
@@ -59,8 +59,8 @@
 													<label for="cb-sexo">Sexo:</label>
 													<select class="form-control" id="cb-sexo" name="cb-sexo">
 														<option>Selecione:</option>
-														<option>Masculino</option>
-														<option>Feminino</option>
+														<option <%= usuario.getSexo().equals("M") ? "selected" : "" %>>Masculino</option>
+														<option <%= usuario.getSexo().equals("F") ? "selected" : "" %>>Feminino</option>
 													</select>
 												</div>
 											</div>
@@ -85,12 +85,13 @@
 									</div>
 								</div>
 							</div>
-						</form>
+						
 					</div>
 					<div class="card-footer">
 						<button class="btn btn-success" id="btn-cadastrar">Atualizar Usuário</button>
 						<a href="index.jsp" class="btn btn-danger">Cancelar</a>
 					</div>
+					</form>
 				</div>
 			</div>
 		</div>
