@@ -3,7 +3,7 @@
 		<div class="card-body">
 			<nav>
 				<a class="nav-link" href="index.jsp">Home</a>
-				<a class="nav-link" href="#">Contatos</a>
+				<a class="nav-link" href="contatos.jsp">Contatos</a>
 				<a class="nav-link" href="#">Compromissos</a>
 			</nav>
 		</div>

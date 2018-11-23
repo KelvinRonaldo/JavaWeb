@@ -1,3 +1,6 @@
+<%@page import="br.senai.sp.model.Contato"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="br.senai.sp.dao.ContatoDAO"%>
 <%@page import="br.senai.sp.model.Usuario"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="utf-8"%>
@@ -10,6 +13,9 @@
 	if(usuario == null){
 		response.sendRedirect("login.html");
 	}else{
+		ContatoDAO dao = new ContatoDAO();
+		ArrayList<Contato> contatos = new ArrayList<>();
+		contatos = dao.getContatos(usuario.getCodUsuario());
 %>
 
 <!DOCTYPE html>
@@ -27,9 +33,24 @@
 			</div>
 			<div class="col-md-9">
 				<div class="card">
-					<div class="card-header bg-info text-light"><h4>Bem-Vindo</h4></div>
+					<div class="card-header bg-info text-light"><h4>Meus Contatos</h4></div>
 					<div class="card-body">
-
+						<table class="table table-hover">
+							<thead>
+								<th>Código</th>
+								<th>Nome</th>
+								<th>E-mail</th>
+							</thead>
+							<tbody>
+								<% for(Contato c : contatos){ %>
+									<tr>
+										<td><%= c.getCodigo() %></td>
+										<td><%= c.getNome()%></td>
+										<td><%= c.getEmail() %></td>									
+									</tr>
+								<% } %>
+							</tbody>							
+						</table>
 					</div>
 					<div class="card-footer"><a href="#">Sair do Sistema</a></div>
 				</div>

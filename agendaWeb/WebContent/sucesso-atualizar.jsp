@@ -29,7 +29,7 @@
 				<div class="card">
 						<div class="card-header bg-info text-light"><h4>SUCESSO</h4></div>
 						<div class="card-body">
-							<h5>Seus dados foram atualizados com sucesso</h5>
+							<h5>Seus dados foram atualizados com sucesso.</h5>
 						</div>
 						<div class="card-footer"><a href="#">Sair do Sistema</a></div>
 				</div>
