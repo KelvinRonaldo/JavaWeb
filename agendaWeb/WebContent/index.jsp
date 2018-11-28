@@ -31,7 +31,7 @@
 					<div class="card-body">
 
 					</div>
-					<div class="card-footer"><a href="#">Sair do Sistema</a></div>
+					<div class="card-footer"></div>
 				</div>
 			</div>
 		</div>

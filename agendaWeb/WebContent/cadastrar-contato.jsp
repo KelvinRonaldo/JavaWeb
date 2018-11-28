@@ -49,7 +49,7 @@
 											<div class="row">
 												<div class="col-md-6">
 													<label for="txt-nome">Nome:</label>
-													<input class="form-control" type="text" id="txt-nome" name="txt-nome" value="<%=usuario.getNome()%>">
+													<input class="form-control" type="text" id="txt-nome" name="txt-nome">
 												</div>
 												<div class="col-md-3">
 													<label for="txt-nascimento">E-mail:</label>
@@ -68,7 +68,7 @@
 					</div>
 					<div class="card-footer">
 						<button class="btn btn-success" id="btn-cadastrar">Salvar</button>
-						<a href="index.jsp" class="btn btn-danger">Cancelar</a>
+						<a href="contatos.jsp" class="btn btn-danger">Cancelar</a>
 					</div>
 					</form>
 				</div>

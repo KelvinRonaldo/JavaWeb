@@ -33,42 +33,25 @@
 			</div>
 			<div class="col-md-9">
 				<div class="card">
-					<div class="card-header bg-info text-light">
-						<div class="row align-items-center">
-							<div class="col-md-8">
-								<h4>Meus Contatos</h4>
-							</div>
-							<div class="col-md-4 text-right">
-								<a class="text-white" href="cadastrar-contato.jsp">
-									<img src="img/plus48.png">
-									Novo Contato
-								</a>
-							</div>
-						</div>
+					<div class="card-header bg-danger text-light">
+						<h4>EXCLUIR CONTATO</h4>
 					</div>
 					<div class="card-body">
-						<table class="table table-hover">
-							<thead>
-								<th>Código</th>
-								<th>Nome</th>
-								<th>E-mail</th>
-								<th></th>
-							</thead>
-							<tbody>
-								<% for(Contato c : contatos){ %>
-									<tr>
-										<td><%= String.format("%06d", c.getCodigo())%></td>
-										<td><a href="ConsultarContatoServlet?codigo=<%= c.getCodigo()%>"><%= c.getNome()%></a></td>
-										<td><%= c.getEmail() %></td>
-										<td>
-											<a href="apagar-contato.jsp"><img src="img/trash35.png"></a>
-										</td>		
-									</tr>
-								<% } %>
-							</tbody>							
-						</table>
+						<div class="row align-items-center">
+							<div class="col-md-1">
+								<img src="img/warning58.png">
+							</div>
+							<div class="col-md-11">
+								<h2 class="text-danger">ATENÇÃO</h2>
+							</div>
+						</div>
+						<p>
+							Seu usuário foi criado com sucesso, a partir de agora você ja pode cadastrar seus contatos e compromissos.
+						</p>
+						<h6>APROVEITE!</h6>
 					</div>
-					<div class="card-footer"></div>
+					<div class="card-footer">
+					</div>
 				</div>
 			</div>
 		</div>

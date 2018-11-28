@@ -43,6 +43,27 @@ public class ContatoDAO {
 		return contatos;
 	}
 	
+	public Contato getContato(int codContato){
+		String consulta = "SELECT * FROM tbl_contato WHERE codigo = ?";
+
+		try {
+			stm = Conexao.getConexao().prepareStatement(consulta);
+			stm.setInt(1, codContato);
+			rs = stm.executeQuery();
+			
+			if(rs.next()){
+				this.contato = new Contato();
+				this.contato.setCodigo(rs.getInt("codigo"));
+				this.contato.setNome(rs.getString("nome"));
+				this.contato.setEmail(rs.getString("email"));
+				this.contato.setTelefone(rs.getString("telefone"));
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return this.contato;
+	}
+	
 	public boolean gravar() {
 		String consulta = "INSERT INTO tbl_contato (nome, email, telefone, cod_usuario)"
 				+ "VALUES (?, ?, ?, ?)";
@@ -53,8 +74,29 @@ public class ContatoDAO {
 			stm.setString(3, contato.getTelefone());
 			stm.setInt(4, contato.getUsuario().getCodUsuario());
 			stm.execute();
-			System.out.println(stm);
 			return true;
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean atualizar() {
+		String consulta ="UPDATE tbl_contato "
+				+ "SET nome = ?, "
+				+ "email = ?, "
+				+ "telefone = ? "
+				+ "WHERE codigo = ?";
+		try {
+			stm = Conexao.getConexao().prepareStatement(consulta);
+			stm.setString(1, contato.getNome());
+			stm.setString(2, contato.getEmail());
+			stm.setString(3, contato.getTelefone());
+			stm.setInt(4, contato.getCodigo());
+			stm.execute();
+			
+			return true;
+			
 		}catch (Exception e) {
 			e.printStackTrace();
 			return false;
