@@ -30,9 +30,7 @@ botao.addEventListener('click', () => {
         console.log(usuario.email);
         console.log(usuario.senha1);
         console.log(usuario.senha2);
-    }
-    
-    
+    }  
 });
 
 const obterUsuario = (form) => {

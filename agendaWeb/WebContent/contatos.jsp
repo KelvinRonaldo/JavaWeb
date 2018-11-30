@@ -61,7 +61,7 @@
 										<td><a href="ConsultarContatoServlet?codigo=<%= c.getCodigo()%>"><%= c.getNome()%></a></td>
 										<td><%= c.getEmail() %></td>
 										<td>
-											<a href="apagar-contato.jsp"><img src="img/trash35.png"></a>
+											<a href="apagar-contato.jsp?nome=<%= c.getNome()%>?&codigo=<%= c.getCodigo()%>"><img src="img/trash35.png"></a>
 										</td>		
 									</tr>
 								<% } %>

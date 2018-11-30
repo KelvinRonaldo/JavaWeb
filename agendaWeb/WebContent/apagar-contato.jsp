@@ -5,17 +5,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="utf-8"%>
 
-<% 
-	Usuario usuario = new Usuario();
+<%  Usuario usuario = new Usuario();
 	usuario = (Usuario)session.getAttribute("usuario");
-				//↑ converte o ↑objeto na classe desejada, no caso a Usuario
-			
+	//↑ converte o ↑objeto na classe desejada, no caso a Usuario
+	
+	Contato contato = new Contato();
+	contato = (Contato)session.getAttribute("contato");
+	session.removeAttribute("contato");
+	
 	if(usuario == null){
 		response.sendRedirect("login.html");
 	}else{
-		ContatoDAO dao = new ContatoDAO();
-		ArrayList<Contato> contatos = new ArrayList<>();
-		contatos = dao.getContatos(usuario.getCodUsuario());
 %>
 
 <!DOCTYPE html>
@@ -45,12 +45,12 @@
 								<h2 class="text-danger">ATENÇÃO</h2>
 							</div>
 						</div>
-						<p>
-							Seu usuário foi criado com sucesso, a partir de agora você ja pode cadastrar seus contatos e compromissos.
-						</p>
-						<h6>APROVEITE!</h6>
+						<h5>Tem certeza de que deseja excluir o contato abaixo?</h5>
+						<h6><%= request.getParameter("nome") %> </h6>
 					</div>
 					<div class="card-footer">
+						<a href="ApagarContatoServlet?codigo=<%= request.getParameter("codigo")%>" class="btn text-light btn-danger">Apagar Contato</a>
+						<a href="contatos.jsp" class="btn btn-success">Cancelar</a>
 					</div>
 				</div>
 			</div>

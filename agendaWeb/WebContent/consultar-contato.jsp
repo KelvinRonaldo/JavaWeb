@@ -44,9 +44,9 @@
 										</div>
 									</div>
 									<div class="bg-white card-body">
-										<div id="painelDeErros">
-											<h6 id="tituloErro" class="text-danger"></h6>
-											<ul id="mensagem-erros">
+										<div id="painel-erros">
+											<h6 id="titulo-erro" class="text-danger"></h6>
+											<ul id="mensagemErros">
 											</ul>
 										</div>
 										<div>
@@ -64,7 +64,7 @@
 													</div>
 													<div class="col-md-3">
 														<label for="txt-telefone">Telefone:</label>
-														<input class="form-control" type="text" id="txt-telefone" name=txt-telefone value="<%=contato.getTelefone()%>">
+														<input class="form-control" type="text" id="txt-telefone" name="txt-telefone" value="<%=contato.getTelefone()%>">
 													</div>
 												</div>
 											</fieldset>
@@ -74,7 +74,7 @@
 							
 						</div>
 						<div class="card-footer">
-							<button class="btn btn-success" id="btn-cadastrar">Confirmar Alterações</button>
+							<button class="btn btn-success" id="btn-atualizar">Confirmar Alterações</button>
 							<a href="contatos.jsp" class="btn btn-warning">Cancelar</a>
 						</div>
 					</form>
@@ -82,6 +82,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="js/form-consultar-contato.js"></script>
 </body>
 </html>
 <%}%>

@@ -80,7 +80,7 @@ public class ContatoDAO {
 			return false;
 		}
 	}
-	
+
 	public boolean atualizar() {
 		String consulta ="UPDATE tbl_contato "
 				+ "SET nome = ?, "
@@ -103,4 +103,19 @@ public class ContatoDAO {
 		}
 	}
 	
+	public boolean apagar() {
+		String consulta ="DELETE FROM tbl_contato "
+				+ "WHERE codigo = ?";
+		try {
+			stm = Conexao.getConexao().prepareStatement(consulta);
+			stm.setInt(1, contato.getCodigo());
+			stm.execute();
+			
+			return true;
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 }
