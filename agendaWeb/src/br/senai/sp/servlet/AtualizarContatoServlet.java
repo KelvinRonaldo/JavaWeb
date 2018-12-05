@@ -24,6 +24,7 @@ public class AtualizarContatoServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Contato contato = new Contato();
+		
 		contato.setCodigo(Integer.parseInt(request.getParameter("txt-codigo")));
 		contato.setNome(request.getParameter("txt-nome"));
 		contato.setEmail(request.getParameter("txt-email"));

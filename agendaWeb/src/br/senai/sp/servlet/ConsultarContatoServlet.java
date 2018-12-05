@@ -29,7 +29,6 @@ public class ConsultarContatoServlet extends HttpServlet {
 		Contato contato = new Contato();
 		
 		contato = dao.getContato(codigo);
-		request.setAttribute("contato", contato);
 		request.getSession().setAttribute("contato", contato);
 		response.sendRedirect("consultar-contato.jsp");
 	}

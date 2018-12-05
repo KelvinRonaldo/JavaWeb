@@ -20,14 +20,15 @@ public class CompromissoDAO {
 		this.compromisso = compromisso;
 	}
 	
-	public ArrayList<Compromisso> getCompromissos(int codUsuario){
-		String consulta = "SELECT * FROM tbl_compromisso WHERE cod_usuario = ?";
+	public ArrayList<Compromisso> getCompromissos(int codUsuario, int status){
+		String consulta = "SELECT * FROM tbl_compromisso WHERE cod_usuario = ? AND status = ?";
 		
 		ArrayList<Compromisso> compromissos = new ArrayList<>();
 		
 		try {
 			stm = Conexao.getConexao().prepareStatement(consulta);
 			stm.setInt(1, codUsuario);
+			stm.setInt(2, status);
 			rs = stm.executeQuery();
 			
 			while(rs.next()){
@@ -50,7 +51,7 @@ public class CompromissoDAO {
 	}
 	
 	public Compromisso getCompromisso(int codCompromisso){
-		String consulta = "SELECT * FROM tbl_contato WHERE codigo = ?";
+		String consulta = "SELECT * FROM tbl_compromisso WHERE cod_compromisso = ?";
 
 		try {
 			stm = Conexao.getConexao().prepareStatement(consulta);
@@ -58,6 +59,7 @@ public class CompromissoDAO {
 			rs = stm.executeQuery();
 			
 			if(rs.next()){
+				compromisso = new Compromisso();
 				this.compromisso.setCod_compromisso(rs.getInt("cod_compromisso"));
 				this.compromisso.setTitulo(rs.getString("titulo"));
 				this.compromisso.setData(rs.getString("data"));
@@ -95,21 +97,29 @@ public class CompromissoDAO {
 			return false;
 		}
 	}
-	/*
+	
 	public boolean atualizar() {
-		String consulta ="UPDATE tbl_contato "
-				+ "SET nome = ?, "
-				+ "email = ?, "
-				+ "telefone = ? "
-				+ "WHERE codigo = ?";
+		String consulta ="UPDATE tbl_compromisso "
+				+ "SET titulo = ?, "
+				+ "data = ?, "
+				+ "hora_inicio = ?, "
+				+ "hora_fim = ?, "
+				+ "descricao = ?, "
+				+ "prioridade = ?, "
+				+ "status = ? "
+				+ "WHERE cod_compromisso = ?";
 		try {
 			stm = Conexao.getConexao().prepareStatement(consulta);
-			stm.setString(1, contato.getNome());
-			stm.setString(2, contato.getEmail());
-			stm.setString(3, contato.getTelefone());
-			stm.setInt(4, contato.getCodigo());
+			stm.setString(1, compromisso.getTitulo());
+			stm.setString(2, compromisso.getData());
+			stm.setString(3, compromisso.getHora_inicio());
+			stm.setString(4, compromisso.getHora_fim());
+			stm.setString(5, compromisso.getDescricao());
+			stm.setInt(6, compromisso.getPrioridade());
+			stm.setInt(7, compromisso.getStatus());
+			stm.setInt(8, compromisso.getCod_compromisso());
 			stm.execute();
-			
+
 			return true;
 			
 		}catch (Exception e) {
@@ -117,20 +127,22 @@ public class CompromissoDAO {
 			return false;
 		}
 	}
-	
-	public boolean apagar() {
-		String consulta ="DELETE FROM tbl_contato "
-				+ "WHERE codigo = ?";
+
+	public boolean alterarStatus() {
+		String consulta ="UPDATE tbl_compromisso "
+				+ "SET status = ? "
+				+ "WHERE cod_compromisso = ?";
 		try {
 			stm = Conexao.getConexao().prepareStatement(consulta);
-			stm.setInt(1, contato.getCodigo());
+			stm.setInt(1, compromisso.getStatus());
+			stm.setInt(2, compromisso.getCod_compromisso());
 			stm.execute();
-			
+
 			return true;
 			
 		}catch (Exception e) {
 			e.printStackTrace();
 			return false;
 		}
-	}*/
+	}
 }

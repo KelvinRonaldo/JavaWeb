@@ -4,7 +4,7 @@
 			<nav>
 				<a class="nav-link" href="index.jsp">Home</a>
 				<a class="nav-link" href="contatos.jsp">Contatos</a>
-				<a class="nav-link" href="compromissos.jsp">Compromissos</a>
+				<a class="nav-link" href="compromissos.jsp?status=0">Compromissos</a>
 			</nav>
 		</div>
 </div>

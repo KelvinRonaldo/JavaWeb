@@ -15,7 +15,8 @@
 	}else{
 		CompromissoDAO dao = new CompromissoDAO();
 		ArrayList<Compromisso> compromissos = new ArrayList<>();
-		compromissos = dao.getCompromissos(usuario.getCodUsuario());
+		compromissos = dao.getCompromissos(usuario.getCodUsuario(), Integer.parseInt(request.getParameter("status")));
+		int status = Integer.parseInt(request.getParameter("status"));
 %>
 
 <!DOCTYPE html>
@@ -51,9 +52,9 @@
 							<div class="col-md-3">
 								<label for="cb-status">Status:</label>
 								<select class="form-control" id="cb-status" name="cb-status">
-									<option value="0">Em Andamento</option>
-									<option value="1">Cancelado</option>
-									<option value="2">Concluído</option>
+									<option value="0" <%= status == 0? "selected": "" %> >Em Andamento</option>
+									<option value="1" <%= status == 1? "selected": "" %> >Cancelado</option>
+									<option value="2" <%= status == 2? "selected": "" %> >Concluído</option>
 								</select>
 							</div>
 							<div class="col-md-9">
@@ -66,16 +67,26 @@
 									<th>Titulo</th>
 									<th>Data</th>
 									<th></th>
+									<th></th>
 								</thead>
 								<tbody>
 									<% for(Compromisso comp : compromissos){ %>
 										<tr>
 											<td><%= String.format("%06d", comp.getCod_compromisso())%></td>
-											<td><a href="AgendarCompromissoServlet?codigo=<%= comp.getCod_compromisso()%>"><%= comp.getTitulo()%></a></td>
+											<td>
+												<a href="ConsultarCompromissoServlet?codigo=<%= comp.getCod_compromisso()%>"><%= comp.getTitulo()%></a>
+											</td>
 											<td><%= comp.getData() %></td>
 											<td>
-												<a href="#"><img src="img/trash35.png"></a>
-											</td>		
+												<a href="CancelarCompromissoServlet?status=1&codigo=<%= comp.getCod_compromisso()%>">
+													<img src="img/cancel35.png">
+												</a>
+											</td>
+											<td>
+												<a href="CancelarCompromissoServlet?status=2&codigo=<%= comp.getCod_compromisso()%>">
+													<img src="img/done35.png">
+												</a>
+											</td>									
 										</tr>
 									<% } %>
 								</tbody>							
