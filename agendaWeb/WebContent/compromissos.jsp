@@ -15,8 +15,8 @@
 	}else{
 		CompromissoDAO dao = new CompromissoDAO();
 		ArrayList<Compromisso> compromissos = new ArrayList<>();
-		compromissos = dao.getCompromissos(usuario.getCodUsuario(), Integer.parseInt(request.getParameter("status")));
 		int status = Integer.parseInt(request.getParameter("status"));
+		compromissos = dao.getCompromissos(usuario.getCodUsuario(), status);
 %>
 
 <!DOCTYPE html>
@@ -51,7 +51,7 @@
 						<div class="row">
 							<div class="col-md-3">
 								<label for="cb-status">Status:</label>
-								<select class="form-control" id="cb-status" name="cb-status">
+								<select class="form-control" id="cb-status" name="cb-status" onchange="trocaStatus()">
 									<option value="0" <%= status == 0? "selected": "" %> >Em Andamento</option>
 									<option value="1" <%= status == 1? "selected": "" %> >Cancelado</option>
 									<option value="2" <%= status == 2? "selected": "" %> >Concluído</option>
@@ -79,12 +79,12 @@
 											<td><%= comp.getData() %></td>
 											<td>
 												<a href="CancelarCompromissoServlet?status=1&codigo=<%= comp.getCod_compromisso()%>">
-													<img src="img/cancel35.png">
+													<img src="<%= status ==  1 || status == 2?"img/return35.png":"img/cancel35.png" %>">
 												</a>
 											</td>
 											<td>
 												<a href="CancelarCompromissoServlet?status=2&codigo=<%= comp.getCod_compromisso()%>">
-													<img src="img/done35.png">
+													<img src="<%= status ==  1 || status == 2?"":"img/done35.png" %>">
 												</a>
 											</td>									
 										</tr>
@@ -98,6 +98,22 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		const cbStatus = document.querySelector("#cb-status");
+		
+		function trocaStatus(){
+			if(cbStatus.value == 0){
+				window.location.href="http://localhost:8080/agendaWeb/compromissos.jsp?status=0";
+			}
+			if(cbStatus.value == 1){
+				window.location.href="http://localhost:8080/agendaWeb/compromissos.jsp?status=1";
+			}
+			if(cbStatus.value == 2){
+				window.location.href="http://localhost:8080/agendaWeb/compromissos.jsp?status=2";
+			}
+		}
+		
+	</script>
 </body>
 </html>
 <%}%>

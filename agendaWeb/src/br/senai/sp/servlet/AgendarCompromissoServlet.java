@@ -41,7 +41,7 @@ public class AgendarCompromissoServlet extends HttpServlet {
 		dao.setCompromisso(compromisso);
 		
 		if(dao.gravar()) {
-			response.sendRedirect("compromissos.jsp");
+			response.sendRedirect("compromissos.jsp?status=0");
 		}else {
 			response.sendRedirect("novo-compromisso.jsp");
 		}
