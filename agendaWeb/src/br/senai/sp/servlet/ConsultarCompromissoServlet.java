@@ -1,4 +1,4 @@
-package br.senia.sp.servlet;
+package br.senai.sp.servlet;
 
 import java.io.IOException;
 
