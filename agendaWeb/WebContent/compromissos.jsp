@@ -78,12 +78,12 @@
 											</td>
 											<td><%= comp.getData() %></td>
 											<td>
-												<a href="CancelarCompromissoServlet?status=1&codigo=<%= comp.getCod_compromisso()%>">
+												<a href="StatusCompromissoServlet?status=<%= status == 1 || status == 2? "0":"1" %>&codigo=<%= comp.getCod_compromisso()%>">
 													<img src="<%= status ==  1 || status == 2?"img/return35.png":"img/cancel35.png" %>">
 												</a>
 											</td>
 											<td>
-												<a href="CancelarCompromissoServlet?status=2&codigo=<%= comp.getCod_compromisso()%>">
+												<a href="StatusCompromissoServlet?status=<%= status == 1 || status == 2? "0":"2" %>&codigo=<%= comp.getCod_compromisso()%>">
 													<img src="<%= status ==  1 || status == 2?"":"img/done35.png" %>">
 												</a>
 											</td>									

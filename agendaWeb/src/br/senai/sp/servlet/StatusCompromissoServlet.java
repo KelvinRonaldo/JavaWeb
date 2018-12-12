@@ -13,11 +13,11 @@ import br.senai.sp.model.Compromisso;
 /**
  * Servlet implementation class CancelarCompromissoServlet
  */
-@WebServlet("/CancelarCompromissoServlet")
-public class RetornarCompromissoServlet extends HttpServlet {
+@WebServlet("/StatusCompromissoServlet")
+public class StatusCompromissoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public RetornarCompromissoServlet() {
+    public StatusCompromissoServlet() {
         super();
 
     }
